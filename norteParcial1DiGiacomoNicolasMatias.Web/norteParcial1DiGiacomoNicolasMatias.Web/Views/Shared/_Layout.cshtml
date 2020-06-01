@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - UAI</title>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <h1>¿Hay vida en otros planetas? - Sistemas solares #445</h1>
+        </header>
+        <section>
+            <article>
+                @RenderBody()
+            </article>
+        </section>
+
+        <aside>
+            <article>
+                <div>
+                    <p>
+                        contenido relacionado
+                    </p>
+                </div>
+            </article>
+        </aside>
+        <footer>
+            <p><a href="">¿Hay vida en otros planetas? - 2020</a></p>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
