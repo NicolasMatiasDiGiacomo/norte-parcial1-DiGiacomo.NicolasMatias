@@ -12,5 +12,11 @@ namespace norteParcial1DiGiacomoNicolasMatias.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult Cosmo()
+        {
+            return View();
+
+        }
     }
 }

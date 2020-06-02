@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Cosmo";
+}
+
+<h2>Cosmo</h2>
+<hr />
+<div>
+    <table border="0">
+        <tr>
+            <th>Siglo</th>
+            <td>
+                <input id="txtSiglo" type="text" placeholder="Ingrese Siglo" />
+            </td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td>
+                <input id="txtNombre" type="text" placeholder="Ingrese Nombre" />
+            </td>
+        </tr>
+        <tr>
+            <th></th>
+            <td>
+                <input id="btnSave" type="button" value="Grabar" class="button-success color-success" />
+                <input id="btnList" type="button" value="Listar productos" class="button-default color-default" />
+            </td>
+        </tr>
+    </table>
+</div>
+<hr />
+<div id="resultado">
+
+</div>
+
+@section scripts{
+    <script>
+        var Constelaciones = new Array();
+        function Constelacion() {
+            this.setSiglo = function (value) { this._siglo = value; }
+            this.getSiglo = function () { return this._siglo; }
+            this.setNombre = function (value) { this._nombre = value; }
+            this.getNombre = function () { return this._nombre; }
+        }
+
+        $("#btnSave").click(function () {
+            var con = new Constelacion();
+            con.setCodigo($("#txtSiglo").val());
+            con.setNombre($("#txtNombre").val());
+            Constelaciones.push(con);
+            $("#txtSiglo").val("");
+            $("#txtNombre").val("");
+        });
+        $("#btnList").click(function () {
+            var ctl = $("#resultado");
+            ctl.html("");
+            $.each(Constelaciones, function (i, e) {
+                ctl.append("Siglo: " + e.getSiglo() + " - " + "Nombre: " + e.getNombre() + "<br />");
+            });
+        });
+    </script>
+}
